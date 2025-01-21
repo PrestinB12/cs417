@@ -1,5 +1,5 @@
 import sys
-import numpy
+# import numpy
 
 def decimal_to_binary(decimal):
     binary = "0."
@@ -22,7 +22,7 @@ def main():
     print("| :-------|:-------|")
     
    # python3 convert_dec_to_bin.py 0.5 0.25 0.75
-   
+
     for arg in args:    # Processes the number
         try:
            
