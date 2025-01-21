@@ -21,7 +21,8 @@ def main():
     print("| Base 10 | Base 2 |")   # Prints the header/format
     print("| :-------|:-------|")
     
-    
+   # python3 convert_dec_to_bin.py 0.5 0.25 0.75
+   
     for arg in args:    # Processes the number
         try:
            
