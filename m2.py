@@ -54,9 +54,9 @@ def main():
                 formatted_base_value = ";".join(base_value)
                 print(f"| {decimal_value} | {formatted_base_value} |")
             else:
-                print(f"| {arg} | INVALID RANGE |")  # If out of range
+                print(f"| {arg} | INVALID RANGE |")  # If the number is out of range
         except ValueError:
-            print(f"| {arg} | INVALID INPUT |")  # If not a valid number
+            print(f"| {arg} | INVALID INPUT |")  # If the number is not a valid number
 
 if __name__ == "__main__":
     main()
