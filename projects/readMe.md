@@ -1,5 +1,9 @@
 # Example of Data Structures in Python
 
+## Choice of Language: Python
+
+
+### Sample Output
 times = []
 
 readings_core_0 = []
