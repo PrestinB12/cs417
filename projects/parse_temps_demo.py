@@ -3,8 +3,9 @@
 import sys
 
 from parse_temps import parse_raw_temps
-
-
+"""
+Main function reads temps, sets up cores and their data along with time(s) and prints them
+"""
 def main():
 
     inTemps = sys.argv[1]
