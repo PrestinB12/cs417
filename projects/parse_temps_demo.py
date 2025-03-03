@@ -23,7 +23,7 @@ def main():
             time, coreData = tempNum
             print(f"{time = } | {coreData = }")
 
-    with open(inTemps, "r") as temps_file:
+    with open(inTemps, "r") as temps_file:  # sets up cores and time
        
         times = []
         core0 = []
@@ -31,7 +31,7 @@ def main():
         core2 = []
         core3 = []
 
-        for time, coreData in parse_raw_temps(temps_file):
+        for time, coreData in parse_raw_temps(temps_file):  #add core data to cores and print the times + core data
 
             times.append(time)
             core0.append(coreData[0])
@@ -62,7 +62,7 @@ def main():
                 coreData[coreID].append(interpolation)
 
         for time, *temps in list(zip(times, *coreData))[4:]:
-            
+
             print(f"{time=} {temps=}")
 
 
