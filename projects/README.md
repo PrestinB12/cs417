@@ -1,42 +1,78 @@
-# Requirements
+# CS417 Piecewise Semester Project 
+### By Prestin Bell
 
-  * Python 3.7
+## Need to know
+Language used: `Python`
 
-> This code makes use of the `f"..."` or [f-string
-> syntax](https://www.python.org/dev/peps/pep-0498/). This syntax was
-> introduced in Python 3.6.
+Data used is in `Data Folder`
 
-# Sample Execution & Output
-If run without command line arguments, using python .\parse_temps_demo.py
+Sample Data is (including but not limited to) this:
 
-```
-python ./
-```
+ 0 <= x <   30; 
+ 
+ y =    80.0000 +     0.6333x; 
+ 
+ interpolation 
+ 
+ 30 <= x <   60;
 
-an error will occur
+## Parameters, Returns, Functions used and why
 
-If run using
+### Within Main.py
 
-```
-python .\parse_temps_demo.py .\data\sensors-2018.12.26.txt
-```
+ Reads data from the input file using the 'parse_temps' module.
 
-the output will be
+    Parameters:
+    inFile: Path for input file.
 
-```
-...
-time=35220 temps=[35.0, 35.0, 44.0, 32.0]
-time=35250 temps=[23.0, 24.0, 20.0, 21.0]
-time=35280 temps=[22.0, 24.0, 20.0, 21.0]
-time=35310 temps=[22.0, 22.0, 19.0, 20.0]
-time=35340 temps=[22.0, 22.0, 19.0, 20.0]
-time=35370 temps=[22.0, 21.0, 18.0, 19.0]
-time=35400 temps=[22.0, 21.0, 18.0, 20.0]
-time=35430 temps=[25.0, 27.0, 23.0, 24.0]
-time=35460 temps=[21.0, 22.0, 19.0, 20.0]
-time=35490 temps=[73.0, 75.0, 63.0, 71.0]
-time=35520 temps=[80.0, 80.0, 69.0, 76.0]
-time=35550 temps=[61.0, 63.0, 51.0, 57.0]
-time=35580 temps=[78.0, 77.0, 66.0, 78.0]
-time=35610 temps=[81.0, 80.0, 69.0, 76.0]
-```
+Returns:
+
+    list: Temperature data.
+
+    Open: Opening the input file
+
+The write functon inters to the output file 'outFile'.
+
+    Parameters used are:
+
+    outFile (str): Path for output file.
+    inters (list): List of tuples (these contain the output data)
+    Open: opens the output file and allows it to be used (and defined)
+
+Processes input data and write the results to the output files.
+
+    Parameters used are (and why):
+
+    inData: temperature data.
+    inFile: path for input file.
+
+### In Parse_Temps_Demo
+
+This main function serves as the demomstration
+
+### Parse_Temps.py
+    This module is a collection of input helpers for the CPU Temperatures Project.
+
+    All code may be used freely in the semester project, if and only if it is imported using
+    ``import parse_temps`` or ``from parse_temps import {...}`` where ``{...}``
+    represents one or more functions.
+
+Take an input file and time-step size and parse all core temps.
+
+    Args:
+        original_temps: an input file
+
+        step_size: time-step in seconds
+
+    Yields:
+        A tuple containing the next time step and a List containing n core
+        temps as floating point values (where n is the number of cores)
+
+### In Piecewise_Linear_Interpolation.py
+Calculate piecewise linear interpolation parameters.
+
+    Args:
+    - data: A list of tuples for (x, y) data points.
+
+    Returns:
+    - list of tuples: List of tuples (x_k, x_k1, m, b) for  interpolating parts/segments

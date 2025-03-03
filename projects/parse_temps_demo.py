@@ -6,65 +6,54 @@ from parse_temps import parse_raw_temps
 
 
 def main():
-    """
-    This main function serves as the driver for the demo. Such functions
-    are not required in Python. However, we want to prevent unnecessary module
-    level (i.e., global) variables.
-    """
 
-    input_temps = sys.argv[1]
+    inTemps = sys.argv[1]
 
-    with open(input_temps, "r") as temps_file:
-        # ----------------------------------------------------------------------
-        # Output raw structure
-        # ----------------------------------------------------------------------
-        for temps_as_floats in parse_raw_temps(temps_file):
-            print(temps_as_floats)
+    with open(inTemps, "r") as temps_file:
+        
+        for tempNum in parse_raw_temps(temps_file):
+            print(tempNum)
 
-    with open(input_temps, "r") as temps_file:
-        # ----------------------------------------------------------------------
-        # Split data
-        # ----------------------------------------------------------------------
-        for temps_as_floats in parse_raw_temps(temps_file):
-            time, core_data = temps_as_floats
-            print(f"{time = } | {core_data = }")
+    with open(inTemps, "r") as temps_file:
+        
+        for tempNum in parse_raw_temps(temps_file):
+            time, coreData = tempNum
+            print(f"{time = } | {coreData = }")
 
-    with open(input_temps, "r") as temps_file:
-        # ----------------------------------------------------------------------
-        # Split Data
-        # ----------------------------------------------------------------------
+    with open(inTemps, "r") as temps_file:
+       
         times = []
-        core_0_data = []
-        core_1_data = []
-        core_2_data = []
-        core_3_data = []
-        for time, core_data in parse_raw_temps(temps_file):
+        core0 = []
+        core1 = []
+        core2 = []
+        core3 = []
+        for time, coreData in parse_raw_temps(temps_file):
             times.append(time)
-            core_0_data.append(core_data[0])
-            core_1_data.append(core_data[1])
-            core_2_data.append(core_data[2])
-            core_3_data.append(core_data[3])
+            core0.append(coreData[0])
+            core1.append(coreData[1])
+            core2.append(coreData[2])
+            core3.append(coreData[3])
 
         print(f"{times[:4] = }")
-        print(f"{core_0_data[:4] = }")
+        print(f"{core0[:4] = }")
+
         for time, *temps in list(
-            zip(times, core_0_data, core_1_data, core_2_data, core_3_data)
+            zip(times, core0, core1, core2, core3)
         )[4:]:
             print(f"{time=} {temps=}")
 
-    with open(input_temps, "r") as temps_file:
-        # ----------------------------------------------------------------------
-        # Split Data, but Better!
-        # ----------------------------------------------------------------------
+    with open(inTemps, "r") as temps_file:
+        
         times = []
-        core_data = [[] for _ in range(0, 4)]
+        coreData = [[] for _ in range(0, 4)]
 
-        for time, raw_core_data in parse_raw_temps(temps_file):
+        for time, raw_coreData in parse_raw_temps(temps_file):
             times.append(time)
-            for core_idx, reading in enumerate(raw_core_data):
-                core_data[core_idx].append(reading)
 
-        for time, *temps in list(zip(times, *core_data))[4:]:
+            for coreID, interpolation in enumerate(raw_coreData):
+                coreData[coreID].append(interpolation)
+
+        for time, *temps in list(zip(times, *coreData))[4:]:
             print(f"{time=} {temps=}")
 
 
