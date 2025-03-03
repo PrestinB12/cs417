@@ -12,12 +12,14 @@ def main():
 
     with open(inTemps, "r") as temps_file:
         
-        for tempNum in parse_raw_temps(temps_file):
+        for tempNum in parse_raw_temps(temps_file): # prints temperatures 
+
             print(tempNum)
 
     with open(inTemps, "r") as temps_file:
         
         for tempNum in parse_raw_temps(temps_file):
+
             time, coreData = tempNum
             print(f"{time = } | {coreData = }")
 
@@ -29,6 +31,7 @@ def main():
         core2 = []
         core3 = []
         for time, coreData in parse_raw_temps(temps_file):
+            
             times.append(time)
             core0.append(coreData[0])
             core1.append(coreData[1])
