@@ -30,8 +30,9 @@ def main():
         core1 = []
         core2 = []
         core3 = []
+
         for time, coreData in parse_raw_temps(temps_file):
-            
+
             times.append(time)
             core0.append(coreData[0])
             core1.append(coreData[1])
@@ -44,6 +45,7 @@ def main():
         for time, *temps in list(
             zip(times, core0, core1, core2, core3)
         )[4:]:
+            
             print(f"{time=} {temps=}")
 
     with open(inTemps, "r") as temps_file:
@@ -52,12 +54,15 @@ def main():
         coreData = [[] for _ in range(0, 4)]
 
         for time, raw_coreData in parse_raw_temps(temps_file):
+
             times.append(time)
 
             for coreID, interpolation in enumerate(raw_coreData):
+
                 coreData[coreID].append(interpolation)
 
         for time, *temps in list(zip(times, *coreData))[4:]:
+            
             print(f"{time=} {temps=}")
 
 
