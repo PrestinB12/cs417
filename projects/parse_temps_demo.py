@@ -1,5 +1,3 @@
-# Found from Thomas Kennedy: https://github.com/cstkennedy/cs417-examples/blob/master/SemesterProject-CPU-Temps/python3/parse_temps.py
-
 #! /usr/bin/env python3
 
 import sys

@@ -1,7 +1,5 @@
 #! /usr/bin/env python3
 
-
-# Found from Thomas Kennedy: https://github.com/cstkennedy/cs417-examples/blob/master/SemesterProject-CPU-Temps/python3/parse_temps.py
 """
 This module is a collection of input helpers for the CPU Temperatures Project.
 All code may be used freely in the semester project, iff it is imported using
@@ -35,3 +33,14 @@ def parse_raw_temps(
         yield (step * step_size), [
             float(entry) for entry in split_re.split(line) if len(entry) > 0
         ]
+
+def process_data(data):
+    core_temps = {i: [] for i in range(4)}  
+
+    for entry in data:
+        time = entry[0]  
+        temps = entry[1] 
+        for i, temp in enumerate(temps):
+            core_temps[i].append((time, temp))  
+            
+    return [core_temps[i] for i in range(4)]
