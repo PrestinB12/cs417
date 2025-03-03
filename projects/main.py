@@ -7,7 +7,7 @@ First read the data
 
 def readData(inFile):
 
-    with open(inFile, 't') as file:
+    with open(inFile, 'r') as file:
 
         return list(parse_temps.parse_raw_temps(file)) # Path for data 
 

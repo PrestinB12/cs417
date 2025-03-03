@@ -7,8 +7,7 @@ parses temps
 """
 
 def parse_raw_temps(
-    originalTemps: TextIO, step_size: int = 30
-) -> Generator[tuple[float, list[float]], None, None]:
+    originalTemps: TextIO, step_size: int = 30) -> Generator[tuple[float, list[float]], None, None]:
     
     split = re.compile(r"[^0-9]*\s+|[^0-9]*$")
 
@@ -30,7 +29,7 @@ def process_data(data):
         time = input[0]  
         temps = input[1] 
         for i, temp in enumerate(temps):
-            
+
             core_temps[i].append((time, temp))  
             
     return [core_temps[i] for i in range(4)]
