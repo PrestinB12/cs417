@@ -10,18 +10,18 @@ def main():
 
     inTemps = sys.argv[1]
 
-    with open(inTemps, "r") as temps_file:
+    with open(inTemps, "t") as temps_file:
         
         for tempNum in parse_raw_temps(temps_file):
             print(tempNum)
 
-    with open(inTemps, "r") as temps_file:
+    with open(inTemps, "t") as temps_file:
         
         for tempNum in parse_raw_temps(temps_file):
             time, coreData = tempNum
             print(f"{time = } | {coreData = }")
 
-    with open(inTemps, "r") as temps_file:
+    with open(inTemps, "t") as temps_file:
        
         times = []
         core0 = []
@@ -43,7 +43,7 @@ def main():
         )[4:]:
             print(f"{time=} {temps=}")
 
-    with open(inTemps, "r") as temps_file:
+    with open(inTemps, "t") as temps_file:
         
         times = []
         coreData = [[] for _ in range(0, 4)]
