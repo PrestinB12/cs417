@@ -1,8 +1,6 @@
 #! /usr/bin/env python3
 
 import os
-import re
-from typing import TextIO, Generator
 
 class LeastSquares:
     def __init__(self, readings, step, filename):
@@ -55,12 +53,3 @@ class LeastSquares:
 
     def gen_b3(self, step, arr):
         return sum(arr[i] * (i * step) for i in range(len(arr)))
-
-
-def parse_raw_temps(originalTemps: TextIO, step_size: int = 30) -> Generator[tuple[float, list[float]], None, None]:
-    split = re.compile(r"[^0-9]*\s+|[^0-9]*$")
-
-    for step, line in enumerate(originalTemps):
-        yield (step * step_size), [
-            float(input) for input in split.split(line) if len(input) > 0
-        ]
