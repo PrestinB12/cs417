@@ -1,4 +1,5 @@
-# CS417 Piecewise Semester Project 
+# CS417 
+# Piecewise Semester Project 
 ### By Prestin Bell
 
 ## Need to know
@@ -76,3 +77,8 @@ Calculate piecewise linear interpolation parameters.
 
     Returns:
     - list of tuples: List of tuples (x_k, x_k1, m, b) for  interpolating parts/segments
+
+## Least Squares Approximation
+
+### LeastSquares.py
+
