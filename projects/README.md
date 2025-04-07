@@ -78,7 +78,19 @@ Calculate piecewise linear interpolation parameters.
     Returns:
     - list of tuples: List of tuples (x_k, x_k1, m, b) for  interpolating parts/segments
 
-## Least Squares Approximation
+# Least Squares Approximation
 
-### LeastSquares.py
+## LeastSquares.py
+
+### Linear Interpolation Function
+    Read File
+    Create one if it does not exist
+    Error statement
+
+### Least Square Approximation Function
+    Use formula to compute the slope (m) and intercepts (b)
+        m = ((a1 * b3) - (a2 * a3)) / ((a1 * b2) - (a2 * b1))
+
+        b = (a3 / a1) - ((a2 / a1) * m)
+    
 
